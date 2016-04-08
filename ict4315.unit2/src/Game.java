@@ -7,12 +7,13 @@ public class Game {
         int moves;
         for (; count < 10000000; ++count) {
             MovementLogic Logic = new MovementLogic();
+            Board Board = new Board();
             Logic.currentCol = 0;
             Logic.currentCol = 0;
             for (int i = 0; i < ROWS; ++i) {
 
                 for (int j = 0; j < COLUMNS; ++j) {
-                    Logic.board[i][j] = 0;
+                    Board.board[i][j] = 0;
                 }
             }
             moves = Logic.play();
@@ -22,7 +23,7 @@ public class Game {
                 } else {
                     System.out.println("Full Tour!");
                 }
-                Logic.printBoard();
+                Board.printBoard();
                 break;
             }
             if (count % 100000 == 0) {
