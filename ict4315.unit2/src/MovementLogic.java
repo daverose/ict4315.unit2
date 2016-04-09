@@ -3,7 +3,7 @@ import java.util.Random;
 public class MovementLogic {
     Board board = new Board();
     Random random = new Random();
-    Knight MyKnight = new Knight();
+    Knight myKnight = new Knight();
     private int currentRow, currentCol;
 
 
@@ -24,9 +24,9 @@ public class MovementLogic {
     public boolean nextMove() {
         int[] moves = { 0, 0, 0, 0, 0, 0, 0, 0 };
         int position = 0;
-        for (int i = 0; i < MyKnight.getMoves(); ++i) {
-            int r = currentRow + MyKnight.getHorizontal(i);
-            int c = currentCol + MyKnight.getVertical(i);
+        for (int i = 0; i < myKnight.getMoves(); ++i) {
+            int r = currentRow + myKnight.getHorizontal(i);
+            int c = currentCol + myKnight.getVertical(i);
             if (board.legalMove( r, c)) {
                 moves[position] = i;
                 ++position;
@@ -35,8 +35,8 @@ public class MovementLogic {
         if (position > 0) {
             int m = random.nextInt(position);
             int n = moves[m];
-            currentRow += MyKnight.getHorizontal(n);
-            currentCol += MyKnight.getVertical(n);
+            currentRow += myKnight.getHorizontal(n);
+            currentCol += myKnight.getVertical(n);
             return true;
         } else {
 
@@ -45,8 +45,8 @@ public class MovementLogic {
 
     }
     boolean closedTour(int beginRow, int beginCol) {
-        for (int i = 0; i < MyKnight.getMoves(); ++i) {
-            if (currentRow + MyKnight.getHorizontal(i) == beginRow && currentCol + MyKnight.getVertical(i) == beginCol) {
+        for (int i = 0; i < myKnight.getMoves(); ++i) {
+            if (currentRow + myKnight.getHorizontal(i) == beginRow && currentCol + myKnight.getVertical(i) == beginCol) {
                 return true;
             }
         }

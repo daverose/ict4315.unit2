@@ -8,7 +8,7 @@ public class Board {
     public Board(){
 
     }
-    public void setBoard(int row, int col, int val){
+    public void setBoard(int row, int col, int val) {
         board[row][col] = val;
     }
     public boolean legalMove(int row, int col) {
