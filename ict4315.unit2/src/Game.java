@@ -1,4 +1,3 @@
-
 public class Game {
     public static void main(String[] args) {
         int ROWS = 8;
@@ -7,13 +6,10 @@ public class Game {
         int moves;
         for (; count < 10000000; ++count) {
             MovementLogic Logic = new MovementLogic();
-            Board Board = new Board();
-            Logic.currentCol = 0;
-            Logic.currentCol = 0;
+            Logic.setCurrRowAndCurrColToZero();
             for (int i = 0; i < ROWS; ++i) {
-
                 for (int j = 0; j < COLUMNS; ++j) {
-                    Board.board[i][j] = 0;
+                    Logic.board.setBoard(i,j,0);
                 }
             }
             moves = Logic.play();
@@ -23,7 +19,7 @@ public class Game {
                 } else {
                     System.out.println("Full Tour!");
                 }
-                Board.printBoard();
+                Logic.board.printBoard();
                 break;
             }
             if (count % 100000 == 0) {
@@ -33,5 +29,3 @@ public class Game {
         System.out.println("Trials: " + count);
     }
 }
-
-
