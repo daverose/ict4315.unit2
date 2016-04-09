@@ -9,9 +9,6 @@ import static org.junit.Assert.*;
 public class MovementLogicTest {
     Board Board = new Board();
     Knight myKnight = new Knight();
-    @Test
-
-
 
     @Test
     public void testNextMove() throws Exception {
