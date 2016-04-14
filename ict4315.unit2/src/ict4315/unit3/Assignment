@@ -1,0 +1,17 @@
+This assignment this week builds on last week. Here are two more classes that implement the KnightsTour problem.
+The first, BruteForce, is identical to the KnightsTour class last week but with a different name and updated package.
+The second, Heuristic, is very similar but implements a different nextMove() algorithm. I
+f you run it you'll see that it generates a full tour 9 times out of 10.
+
+BruteForce.javaPreview the documentView in a new window
+
+Heuristic.javaPreview the documentView in a new window
+
+The task this week is to work with interfaces and abstract classes.
+As with last week you need to turn this into classes.
+In this case you should create a NextMove interface, an AbstractNextMove abstract class, and two implementations, BruteForce and Heuristic.
+You might need to get creative to put something useful in AbstractNextMove but this is about playing around with the concepts,
+not getting the best design. Hopefully you already have a KnightsTour class. You should update it so that its constructor takes
+a NextMove instance and uses it to calculate the next move.
+
+As with last week, for full credit you need unit tests.
