@@ -1,7 +1,7 @@
 package ict4315.unit3;
 
 public class Board {
-    private int[][] board = new int[8][8];
+    int[][] board = new int[8][8];
     private final int ROWS = 8;
     private final int COLUMNS = 8;
     private int currentRow;

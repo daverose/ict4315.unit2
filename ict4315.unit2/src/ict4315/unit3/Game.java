@@ -9,12 +9,13 @@ public class Game {
         for (; count < 10000000; ++count) {
             Board BruteBoard = new Board();
             BruteNextMove BruteNextMove = new BruteNextMove();
-            BruteBoard.setCurrRowAndCurrColToZero();
+         //   BruteBoard.setCurrRowAndCurrColToZero();
             for (int i = 0; i < ROWS; ++i) {
                 for (int j = 0; j < COLUMNS; ++j) {
                     BruteBoard.setBoard(i,j,0);
                 }
             }
+            /*System.out.println("Inside main");*/
             moves = BruteNextMove.play();
             if (moves == 64) {
                 if (BruteNextMove.closedTour(0, 0)) {
