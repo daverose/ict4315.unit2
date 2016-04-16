@@ -9,13 +9,11 @@ public class Game {
         for (; count < 10000000; ++count) {
             Board BruteBoard = new Board();
             BruteNextMove BruteNextMove = new BruteNextMove();
-         //   BruteBoard.setCurrRowAndCurrColToZero();
             for (int i = 0; i < ROWS; ++i) {
                 for (int j = 0; j < COLUMNS; ++j) {
                     BruteBoard.setBoard(i,j,0);
                 }
             }
-            /*System.out.println("Inside main");*/
             moves = BruteNextMove.play();
             if (moves == 64) {
                 if (BruteNextMove.closedTour(0, 0)) {
@@ -23,7 +21,8 @@ public class Game {
                 } else {
                     System.out.println("Brute Force Full Tour!");
                 }
-                BruteBoard.printBoard();
+                BruteNextMove.printBoard();
+                System.out.println();
                 break;
             }
             if (count % 100000 == 0) {
@@ -31,25 +30,25 @@ public class Game {
             }
         }
         System.out.println("Brute Force Trials: " + count);
-        Board HeuristicBoard = new Board();
         HeuristicNextMove HeuristicNextMove = new HeuristicNextMove();
-        HeuristicBoard.initialize();
-
+        int numberOfMoves;
         for (int row = 0; row < ROWS / 2; ++row) {
             for (int col = (ROWS / 2 - 1); col >= row; --col) {
-                HeuristicBoard.initialize();
+                HeuristicNextMove.initialize();
                 HeuristicNextMove.setCurrentCol(col);
                 HeuristicNextMove.setCurrentRow(row);
-                moves = HeuristicNextMove.play();
-                if (moves == 64) {
+                numberOfMoves = HeuristicNextMove.play();
+                if (numberOfMoves == 64) {
                     if (HeuristicNextMove.closedTour(row, col)) {
                         System.out.println("Heuristic Closed Tour!");
                     } else {
                         System.out.println("Heuristic Full Tour!");
                     }
+
                 }
-                HeuristicBoard.printBoard();
+                HeuristicNextMove.printBoard();
                 System.out.println();
+
             }
         }
     }

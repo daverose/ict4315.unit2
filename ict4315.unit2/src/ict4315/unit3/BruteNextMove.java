@@ -24,21 +24,13 @@ public class BruteNextMove extends AbstractNextMove implements nextMove {
             int n = moves[m];
             currentRow += myKnight.getHorizontal(n);
             currentCol += myKnight.getVertical(n);
-           // System.out.println("Inside nextMove and row and col is : " + currentCol + " " + currentRow);
             return true;
         } else {
-           // System.out.println("no Moves!");
             return false;
         }
 
     }
-//    public boolean hasMove(int row, int col){
-//            if (row >= 0 && col >= 0 && row < ROWS && col < COLUMNS ) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
+
     public boolean legalMove(int row, int col) {
         if (row >= 0 && col >= 0 && row < ROWS && col < COLUMNS && board[row][col] == 0) {
             return true;
@@ -46,26 +38,22 @@ public class BruteNextMove extends AbstractNextMove implements nextMove {
             return false;
         }
     }
-//    public boolean legalMove(int r, int c){
-//        if (hasMove( r, c) && onBoard(r,c)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//    public boolean onBoard(int row, int col) {
-//        return (row >= 0 && col >= 0 && row < ROWS && col < COLUMNS);
-//    }
-//
+
     public int play() {
         int move = 0;
         do {
             ++move;
             board[currentRow][currentCol] = move;
-        //  System.out.println("Inside play board is " + board[currentRow][currentCol]);
         } while (nextMove());
         return move;
     }
-
+    public void printBoard() {
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLUMNS; ++j) {
+                System.out.printf("%2d ", board[i][j]);
+            }
+            System.out.println();
+        }
     }
 
+}
